@@ -1,0 +1,254 @@
+Q1. Insert Elements into a Queue (Enqueue)
+
+import java.util.Scanner;
+
+public class Q1 {
+    static int[] queue;
+    static int front = -1;
+    static int rear = -1;
+    static int size;
+
+    static void enqueue(int value) {
+        if (rear == size - 1) {
+            System.out.println("Queue Overflow");
+        } else {
+            if (front == -1) {
+                front = 0;
+            }
+            rear = rear + 1;
+            queue[rear] = value;
+        }
+    }
+
+    static void display() {
+        if (front == -1 || front > rear) {
+            System.out.println("Queue Underflow");
+        } else {
+            System.out.print("Queue: ");
+            for (int i = front; i <= rear; i++) {
+                System.out.print(queue[i] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        size = sc.nextInt();
+        queue = new int[size];
+
+        for (int i = 0; i < size; i++) {
+            int x = sc.nextInt();
+            enqueue(x);
+        }
+
+        display();
+    }
+}
+
+
+
+Q2. Delete an Element from Queue (Dequeue)
+
+public class Q2 {
+    static int size = 5;
+    static int[] queue = new int[size];
+    static int front = -1;
+    static int rear = -1;
+
+    static void enqueue(int value) {
+        if (rear == size - 1) {
+            System.out.println("Queue Overflow");
+        } else {
+            if (front == -1) {
+                front = 0;
+            }
+            rear = rear + 1;
+            queue[rear] = value;
+        }
+    }
+
+    static void dequeue() {
+        if (front == -1 || front > rear) {
+            System.out.println("Queue Underflow");
+        } else {
+            System.out.println("Deleted Element: " + queue[front]);
+            front = front + 1;
+        }
+    }
+
+    static void display() {
+        if (front == -1 || front > rear) {
+            System.out.println("Queue Underflow");
+        } else {
+            System.out.print("Queue: ");
+            for (int i = front; i <= rear; i++) {
+                System.out.print(queue[i] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        enqueue(10);
+        enqueue(20);
+        enqueue(30);
+        enqueue(40);
+        enqueue(50);
+
+        dequeue();
+        display();
+    }
+}
+
+
+Q3. Find the Front Element of Queue
+
+public class Q3 {
+    static int size = 5;
+    static int[] queue = new int[size];
+    static int front = -1;
+    static int rear = -1;
+
+    static void enqueue(int value) {
+        if (rear == size - 1) {
+            System.out.println("Queue Overflow");
+        } else {
+            if (front == -1) {
+                front = 0;
+            }
+            rear = rear + 1;
+            queue[rear] = value;
+        }
+    }
+
+    static void findFront() {
+        if (front == -1 || front > rear) {
+            System.out.println("Queue Underflow");
+        } else {
+            System.out.println("Front Element: " + queue[front]);
+        }
+    }
+
+    public static void main(String[] args) {
+        enqueue(15);
+        enqueue(25);
+        enqueue(35);
+        enqueue(45);
+        enqueue(55);
+
+        findFront();
+    }
+}
+
+
+Q4. Display the Rear Element of Queue
+
+public class Q4 {
+    static int size = 5;
+    static int[] queue = new int[size];
+    static int front = -1;
+    static int rear = -1;
+
+    static void enqueue(int value) {
+        if (rear == size - 1) {
+            System.out.println("Queue Overflow");
+        } else {
+            if (front == -1) {
+                front = 0;
+            }
+            rear = rear + 1;
+            queue[rear] = value;
+        }
+    }
+
+    static void findRear() {
+        if (front == -1 || front > rear) {
+            System.out.println("Queue Underflow");
+        } else {
+            System.out.println("Rear Element: " + queue[rear]);
+        }
+    }
+
+    public static void main(String[] args) {
+        enqueue(5);
+        enqueue(10);
+        enqueue(15);
+        enqueue(20);
+        enqueue(25);
+
+        findRear();
+    }
+}
+
+
+Q5. Perform Multiple Operations on Queue
+
+public class Q5 {
+    static int size = 5;
+    static int[] queue = new int[size];
+    static int front = -1;
+    static int rear = -1;
+
+    static void enqueue(int value) {
+        if (rear == size - 1) {
+            System.out.println("Queue Overflow");
+        } else {
+            if (front == -1) {
+                front = 0;
+            }
+            rear = rear + 1;
+            queue[rear] = value;
+        }
+    }
+
+    static void dequeue() {
+        if (front == -1 || front > rear) {
+            System.out.println("Queue Underflow");
+        } else {
+            System.out.println("Deleted Element: " + queue[front]);
+            front = front + 1;
+        }
+    }
+
+    static void display() {
+        if (front == -1 || front > rear) {
+            System.out.println("Queue Underflow");
+        } else {
+            System.out.print("Queue: ");
+            for (int i = front; i <= rear; i++) {
+                System.out.print(queue[i] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    static void displayFront() {
+        if (front == -1 || front > rear) {
+            System.out.println("Queue Underflow");
+        } else {
+            System.out.println("Front: " + queue[front]);
+        }
+    }
+
+    static void displayRear() {
+        if (front == -1 || front > rear) {
+            System.out.println("Queue Underflow");
+        } else {
+            System.out.println("Rear: " + queue[rear]);
+        }
+    }
+
+    public static void main(String[] args) {
+        enqueue(10);
+        enqueue(20);
+        enqueue(30);
+        dequeue();
+        enqueue(40);
+        enqueue(50);
+
+        display();
+        displayFront();
+        displayRear();
+    }
+}
